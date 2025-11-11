@@ -1,5 +1,4 @@
-import pygame
-import random
+import pygame, random
 
 # Initialize pygame
 pygame.init()
@@ -18,30 +17,34 @@ clock = pygame.time.Clock()
 # Set game values
 # TODO: make a variable (constant) named SNAKE_SIZE and initialize to 20
 
-# TODO: make a variable named head_x and assign half of the WINDOW_WIDTH to it.  use integer division //  (i.e. 11 / 2 is 5.5,  11//2 is 5)
-# TODO: make a variable named head_y and assign half of the WINDOW_HEIGHT + 100 to it.  use integer division //
+# TODO: make a variable named head_x and assign half of the window_width to it. use integer divison // (i.e. 11 / 2 is 5.5, 11//2 is 5)
+# TODO: make a variable named head_y and assign half of the window_height + 100 to it. use integer divison //
 
-# TODO: make a variable named snake_dx and assign 0 to it.
+# TODO: make a variable named snake_dx and assign 0 to it
 # TODO: repeat for a variable named snake_dy
 
-# TODO: make a variable named score and assign 0 to it.
+# TODO: repeat for a variable named score and assign 0 to it.
 
 # Set colors
-GREEN = (0, 255, 0)  # (r, g, b)
-# TODO: make a DARKGREEN color with rgb(10, 50, 10)
-# TODO: make a RED
-# TODO: make a DARKRED with rgb of (150, 0, 0)
-# TODO: make a WHITE
+GREEN = (0, 255, 0) # (r, g, b)
+DARKGREEN = (10, 50, 10)
+RED = (255, 0, 0)
+DARKRED = (150, 0, 0)
+WHITE = (255, 255, 255)
+
 
 # Set fonts
-
+font = pygame.font.SysFont('gabriola', 48) # ("FontName", FontSize)
 # Set text
-
+title_text = font.render("~~SNEKE~~", True, DARKGREEN, DARKRED) # make a text object
+title_text_rect = title_text.get_rect() # gets the box containing the text object
+title_text_rect.center = (WINDOW_WIDTH//2, WINDOW_HEIGHT//2) # places the box containing the text object
 # Set sounds and music
-
+pick_up_sound = pygame.mixer.Sound("pick_up.wav")
 # Set images (in this case, use simple rects...so just create their coordinates)
 # For a rectangle you need (top-left x, top-left y, width, height)
-
+apple_coord = (500, 500, SNAKE_SIZE, SNAKE_SIZE)
+apple_rect = pygame.draw.rect(display_surface, RED, apple_coord)
 # The main game loop
 running = True
 while running:
@@ -73,4 +76,3 @@ while running:
 
 # End the game
 pygame.quit()
-
